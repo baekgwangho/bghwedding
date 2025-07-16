@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/mobile-wedding-invitation/',
+  // base: '/mobile-wedding-invitation/',
+  base: '/',
   build: {
     outDir: 'dist',
   },
