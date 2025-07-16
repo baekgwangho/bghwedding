@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Fix paths
+        run: |
+          sed -i 's|src="/bghwedding/|src="./|g' dist/index.html
+          sed -i 's|href="/bghwedding/|href="./|g' dist/index.html
+          sed -i 's|src="/assets/|src="./assets/|g' dist/index.html
+          sed -i 's|href="/assets/|href="./assets/|g' dist/index.html
+          cp dist/index.html dist/404.html
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
