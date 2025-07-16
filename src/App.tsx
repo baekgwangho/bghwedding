@@ -1,37 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import GuestBook from './components/GuestBook/GuestBook.tsx';
+import React from 'react';
+import styled from 'styled-components';
+
+import GuestBook from './components/GuestBook/GuestBook';
+import './index.css';
+import Header from './components/Header.tsx';
+import MainSection from './components/MainSection.tsx';
+import Gallery from './components/Gallery.tsx';
+import Location from './components/Location.tsx';
+
+const AppContainer = styled.div`
+  max-width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+`;
+
+const Section = styled.section`
+  scroll-margin-top: 80px;
+`;
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <GuestBook />
-    </>
-  )
+    <AppContainer>
+      <Header />
+      <Section id="main">
+        <MainSection />
+      </Section>
+      <Section id="gallery">
+        <Gallery />
+      </Section>
+      <Section id="location">
+        <Location />
+      </Section>
+      <Section id="guestbook">
+        <GuestBook />
+      </Section>
+    </AppContainer>
+  );
 }
 
-export default App
+export default App;
