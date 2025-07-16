@@ -1,6 +1,7 @@
 {
   "name": "mobile-wedding-invitation",
   "private": true,
+  "homepage": "https://baekgwangho.github.io/mobile-wedding-invitation",
   "version": "0.0.0",
   "type": "module",
   "author": "baek",
@@ -9,7 +10,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "dayjs": "^1.11.13",

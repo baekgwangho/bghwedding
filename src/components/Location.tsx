@@ -1,7 +1,7 @@
 // src/components/Location/Location.tsx
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { FaMapMarkerAlt, FaCar, FaSubway, FaBus, FaPhone, FaCopy } from 'react-icons/fa';
+import { FaCar, FaSubway, FaBus, FaPhone, FaCopy } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const LocationContainer = styled.section`

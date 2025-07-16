@@ -7,8 +7,11 @@ import { motion } from 'framer-motion';
 import { FaTimes } from 'react-icons/fa';
 
 // Swiper 스타일 import
+// @ts-ignore
 import 'swiper/css';
+// @ts-ignore
 import 'swiper/css/navigation';
+// @ts-ignore
 import 'swiper/css/pagination';
 
 const GalleryContainer = styled.section`
